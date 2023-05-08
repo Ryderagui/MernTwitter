@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 const { isProduction } = require('./config/keys');
-var indexRouter = require('./routes/index');
+require('./models/User');
 var usersRouter = require('./routes/api/users');
 const tweetsRouter = require('./routes/api/tweets');
 const csurf = require('csurf');
@@ -24,11 +24,6 @@ app.use(
 if(!isProduction){
   app.use(cors());
 }
-
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
