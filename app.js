@@ -5,6 +5,7 @@ var logger = require('morgan');
 const cors = require('cors');
 const { isProduction } = require('./config/keys');
 require('./models/User');
+require('./models/Tweet'); 
 require('./config/passport');
 const passport = require('passport');
 var usersRouter = require('./routes/api/users');
